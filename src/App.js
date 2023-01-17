@@ -1,53 +1,14 @@
+import Home from "./routes/home/home.component";
+import { Route, Routes } from "react-router-dom";
+import Navigation from "./routes/navigation/navigation.component";
+
 const App = () => {
   return (
-    <div className="categories-container">
-      <div className="category-container">
-        {}
-        <div className="cotegory-body-container">
-          <h2>Hats</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-
-      <div className="category-container">
-        {}
-        <div className="cotegory-body-container">
-          <h2>Hats</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-
-      <div className="category-container">
-        {}
-        <div className="cotegory-body-container">
-          <h2>Jackets</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-
-      <div className="category-container">
-        {}
-        <div className="cotegory-body-container">
-          <h2>Sneakers</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-
-      <div className="category-container">
-        {}
-        <div className="cotegory-body-container">
-          <h2>Womens</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className="category-container">
-        {}
-        <div className="cotegory-body-container">
-          <h2>Mens</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-    </div>
+    <Routes>
+      <Route path="" element={<Navigation />}>
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
   );
 };
 
