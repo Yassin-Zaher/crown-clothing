@@ -38,12 +38,31 @@ export const CartProvider = ({ children }) => {
     setItemCount(newItemCount);
   }, [cartItems]);
 
+  //onClick={removeItemHandler} onClick={addItemHandler}  onClick={clearItemHandler}
+  const removeItemToCart = (product) => {
+    if (product.quantity === 0) return;
+    const updatedProduct = cartItems.map((p) => {
+      if (p.id === product.id) {
+        return { ...p, quantity: p.quantity - 1 };
+      }
+      return p;
+    });
+    setCartItems(updatedProduct);
+  };
+
+  const clearItemFromCart = (product) => {
+    const updatedProducts = cartItems.filter((p) => p.id !== product.id);
+    setCartItems(updatedProducts);
+  };
+
   const value = {
     isCartOpen,
     setIsCartOpen,
     cartItems,
     addItemToCart,
     itemCount,
+    removeItemToCart,
+    clearItemFromCart,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
