@@ -5,7 +5,7 @@
   letter-spacing: 0.5px;
   line-height: 50px;
   padding: 0 35px 0 35px;
-  font-size: 15px;
+  font-size: 12px;
   background-color: black;
   color: white;
   text-transform: uppercase;
@@ -15,7 +15,7 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
-
+  
   &:hover {
     background-color: white;
     color: black;
@@ -25,6 +25,13 @@
   &.google-sign-in {
     background-color: #4285f4;
     color: white;
+    display: flex;
+    align-items: center;
+
+    svg{
+      width: 30px;
+      height: 30px;
+    }
 
     &:hover {
       background-color: #357ae8;
@@ -42,5 +49,7 @@
       color: white;
       border: none;
     }
+    
   }
+  
 }

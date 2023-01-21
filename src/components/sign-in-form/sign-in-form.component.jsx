@@ -7,6 +7,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+import { ReactComponent as GoogleIcon } from "../../assets/google-icon.svg";
 
 // initial state
 const defaultFormFields = {
@@ -81,7 +82,7 @@ const SignInForm = () => {
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
           <Button type="button" onClick={signInWithGoogle} buttonType="google">
-            Sign In With Google
+            Sign In With <GoogleIcon />
           </Button>
         </div>
       </form>
