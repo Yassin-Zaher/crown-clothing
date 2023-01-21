@@ -8,7 +8,7 @@ const CartDropdown = () => {
   const { cartItems } = useContext(CartContext);
   return (
     <div className="cart-dropdown-container">
-      <div className="items-items">
+      <div className="cart-items">
         {cartItems.map((item) => (
           <CartItem key={item.id} cartItem={item} />
         ))}
