@@ -20,12 +20,23 @@ export const CartContext = createContext({
   cartItems: [],
   addItemToCart: () => {},
   itemCount: 0,
+  priceCount: 0,
+  setPriceCount: () => {},
 });
+
+const totalPriceCount = (cartItems) => {
+  const totalPrice = cartItems.reduce(
+    (total, cartItem) => total + cartItem.quantity,
+    0
+  );
+  return totalPrice;
+};
 
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [itemCount, setItemCount] = useState(0);
+  const [priceCount, setPriceCount] = useState(0);
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   };
@@ -35,7 +46,12 @@ export const CartProvider = ({ children }) => {
       (total, cartItem) => total + cartItem.quantity,
       0
     );
+    const newPriceCount = cartItems.reduce(
+      (total, cartItem) => total + cartItem.quantity * cartItem.price,
+      0
+    );
     setItemCount(newItemCount);
+    setPriceCount(newPriceCount);
   }, [cartItems]);
 
   //onClick={removeItemHandler} onClick={addItemHandler}  onClick={clearItemHandler}
@@ -63,6 +79,7 @@ export const CartProvider = ({ children }) => {
     itemCount,
     removeItemToCart,
     clearItemFromCart,
+    priceCount,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
