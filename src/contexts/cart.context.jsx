@@ -21,7 +21,6 @@ export const CartContext = createContext({
   addItemToCart: () => {},
   itemCount: 0,
   priceCount: 0,
-  setPriceCount: () => {},
 });
 
 const totalPriceCount = (cartItems) => {
@@ -46,11 +45,15 @@ export const CartProvider = ({ children }) => {
       (total, cartItem) => total + cartItem.quantity,
       0
     );
+
+    setItemCount(newItemCount);
+  }, [cartItems]);
+
+  useEffect(() => {
     const newPriceCount = cartItems.reduce(
       (total, cartItem) => total + cartItem.quantity * cartItem.price,
       0
     );
-    setItemCount(newItemCount);
     setPriceCount(newPriceCount);
   }, [cartItems]);
 
