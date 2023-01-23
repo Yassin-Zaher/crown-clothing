@@ -19,13 +19,13 @@ function Home() {
     },
     {
       id: 4,
-      title: "womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+      title: "classic",
+      imageUrl: "https://i.ibb.co/B3Rm4dS/pexels-terje-sollie-298863.jpg",
     },
     {
       id: 5,
       title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+      imageUrl: "https://i.ibb.co/Q9GpCSP/pexels-mikhail-nilov-7821288.jpg",
     },
   ];
   return (
